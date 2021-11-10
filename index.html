@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Contador De Passos</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: arial;
+        }
+        .col{
+            flex-direction: column;
+            display: flex;
+
+        }
+        h1{
+            text-align: center;
+            margin: 25px
+        }
+        .row{
+            flex-direction: row;
+            display: flex;
+        }
+        .container{
+            margin: 0 auto;
+            width: 80vw;
+        }
+        .inicio, .passo, .fim{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 5px;
+            width: 250px;
+            
+        }
+    
+        
+        main section{
+            display: flex;
+            align-items: center;
+            
+            
+            
+        }
+        .ext{
+            padding: 25px;
+            border: 1px black solid;
+            border-radius: 5px;
+            background-color: rgb(243, 243, 243);
+            max-width: 350px;
+        }
+        .botao{
+            justify-content: center;
+            display: flex;
+            
+        }
+        button{
+            width: 100px;
+            height: 35px;
+        
+        }
+        p{
+            padding: 5px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="container">
+        <div>   
+            <h1>Contador De Passos Em JS</h1>
+        </div> 
+    </header>
+    <main>
+        <section class="container col">
+            <div class="ext">
+                <div class="inicio">
+                    <div>
+                        <h2>Inicio</h2>
+                    </div>
+                    <div>
+                        <input type="number"id="inicio" placeholder="Digite Aqui">
+                    </div>
+                </div>
+                <div class="fim">
+                    <div>
+                        <h2>Fim</h2>
+                    </div>
+                    <div>
+                        <input type="number" id="fim" placeholder="Digite Aqui">
+                    </div>
+                </div>
+                <div class="passo">
+                    <div>
+                        <h2>Passo</h2>
+                    </div>
+                    <div>
+                        <input type="number" id="passo" placeholder="Digite Aqui">
+                    </div>
+                    
+                </div>
+                <div class="botao" onclick="contador()">
+                    <button>Contar</button>
+                </div>
+                <div>
+                    <p id="visor"></p>
+                </div>
+            </div>
+        </section>
+    <script>
+        
+      
+        function contador(){
+            var inicio = Number(document.getElementById("inicio").value);
+            var fim = Number(document.getElementById("fim").value);
+            var passo = Number(document.getElementById("passo").value);
+            var visor = document.getElementById("visor").innerHTML = ""
+            if(inicio <= fim){
+                for (var c = inicio; c <= fim; c += passo) {
+                    if(c < fim){
+                        var visor = document.getElementById("visor").innerHTML += ` ${c}&#8594; `;
+                    } 
+                    else if( c == fim){
+                            var visor = document.getElementById("visor").innerHTML += ` ${c}. `;
+                    }
+                }
+            }
+            else{
+                window.alert("Erro. Digite um valor válido.")
+            }
+        }
+    </script>
+    </main>
+    
+</body>
+</html>
